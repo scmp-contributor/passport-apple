@@ -92,8 +92,9 @@ function Strategy(options, verify) {
                         const results = JSON.parse(data);
                         const access_token = results.access_token;
                         const refresh_token = results.refresh_token;
-                        const decodedIdToken = jwt.decode(results.id_token)
-                        callback(null, access_token, refresh_token, decodedIdToken);
+                        const decodedIdToken = jwt.decode(results.id_token);
+                        const id_token = results.id_token;
+                        callback(null, access_token, refresh_token, decodedIdToken, id_token);
                     }
                 }
             )
