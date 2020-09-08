@@ -89,7 +89,6 @@ function Strategy(options, verify) {
                     if (error) {
                         callback(error);
                     } else {
-                        console.warn('123456')
                         const results = JSON.parse(data);
                         const access_token = results.access_token;
                         const refresh_token = results.refresh_token;
@@ -97,7 +96,6 @@ function Strategy(options, verify) {
                             id_token: results.id_token,
                             decodedIdToken: jwt.decode(results.id_token)
                         }
-                        console.warn(token, 'token in lib')
                         callback(null, access_token, refresh_token, token);
                     }
                 }
