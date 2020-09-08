@@ -91,7 +91,7 @@ function Strategy(options, verify) {
                     } else {
                         const results = JSON.parse(data);
                         console.warn(results, 'in lib result')
-                        console.warn(results.id_token(), 'is that an token lib')
+                        console.warn(results.id_token, 'ib lib result token')
                         const access_token = results.access_token;
                         const refresh_token = results.refresh_token;
                         const decodedIdToken = jwt.decode(results.id_token);
