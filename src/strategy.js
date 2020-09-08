@@ -89,14 +89,15 @@ function Strategy(options, verify) {
                     if (error) {
                         callback(error);
                     } else {
+                        console.warn('123456')
                         const results = JSON.parse(data);
-                        console.warn(results, 'in lib result')
-                        console.warn(results.id_token, 'ib lib result token')
                         const access_token = results.access_token;
                         const refresh_token = results.refresh_token;
-                        const decodedIdToken = jwt.decode(results.id_token);
-                        const id_token = results.id_token;
-                        callback(null, access_token, refresh_token, decodedIdToken, id_token);
+                        const token = {
+                            id_token: results.id_token,
+                            decodedIdToken: jwt.decode(results.id_token)
+                        }
+                        callback(null, access_token, refresh_token, token);
                     }
                 }
             )
