@@ -97,6 +97,7 @@ function Strategy(options, verify) {
                             id_token: results.id_token,
                             decodedIdToken: jwt.decode(results.id_token)
                         }
+                        console.warn(token, 'token in lib')
                         callback(null, access_token, refresh_token, token);
                     }
                 }
